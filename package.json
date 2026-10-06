@@ -1,0 +1,9 @@
+{
+  "name": "repo-city",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Turn a code folder into an interactive isometric city. No uploads. No dependencies.",
+  "scripts": { "test": "node test/core.test.cjs", "start": "node scripts/serve.cjs" },
+  "engines": { "node": ">=20" },
+  "license": "MIT"
+}

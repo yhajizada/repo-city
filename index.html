@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Turn your code folder into an interactive city. Files become buildings. Folders become neighborhoods. Everything stays on your device.">
+  <title>RepoCity — your code has a skyline</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101423'/%3E%3Cpath d='M5 24V14l6-3v13m3 0V6l6-3v21m3 0V12l5-3v15' stroke='%23b3ff80' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="src/core.js" defer></script><script src="src/renderer.js" defer></script><script src="src/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./index.html" aria-label="RepoCity home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 27V16l7-4v15m4 0V7l7-4v24m4 0V15l5-3v15"/></svg><span>repo<span class="brand-light">city</span><span class="brand-dot">.</span></span></a>
+    <div class="header-right"><span class="privacy"><span></span> Everything stays on your device</span><a href="https://github.com/yhajizada/repo-city" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+  </header>
+  <main class="workspace">
+    <aside class="sidebar">
+      <div class="eyebrow">A DIFFERENT VIEW OF YOUR CODE</div>
+      <h1>Your code.<br> Your skyline.</h1>
+      <p class="intro">Files become buildings.<br>Folders become neighborhoods.</p>
+      <button class="primary" id="choose-folder"><span>＋</span> Build my city</button>
+      <input id="folder-input" type="file" webkitdirectory multiple hidden aria-label="Choose a code folder">
+      <p class="local-note">Choose a folder. Only file names and sizes are used. File contents are never read.</p>
+      <section class="project">
+        <div class="section-label">CURRENT CITY <span id="demo-badge">DEMO</span></div>
+        <h2 id="project-name">orbit-studio</h2>
+        <div class="stats"><div><strong id="file-count">—</strong><span>buildings</span></div><div><strong id="district-count">—</strong><span>districts</span></div><div><strong id="total-size">—</strong><span>total size</span></div></div>
+      </section>
+      <section class="legend"><div class="section-label">CITY COLORS</div><div id="legend-items"></div></section>
+      <section class="inspector" aria-label="Selected building"><div class="section-label">BUILDING INSPECTOR</div><div id="building-details"><div class="empty-icon">⌁</div><p>Pick a building to see<br>the file behind it.</p></div></section>
+      <button class="secondary" id="load-demo">Explore the demo city</button>
+      <div class="sidebar-foot">No account. No uploads. Just a new perspective.</div>
+    </aside>
+    <section class="map-area" aria-label="Interactive repository city">
+      <div class="map-heading"><div><span class="live-dot"></span><span id="map-title">ORBIT-STUDIO / CITY VIEW</span></div><span class="map-coordinate" id="view-label">ISOMETRIC · 01</span></div>
+      <canvas id="city" tabindex="0" aria-label="Repository city. Drag to pan, scroll to zoom. Use left and right arrow keys to select buildings, plus and minus to zoom, and 0 to reset."></canvas>
+      <div id="tooltip" class="tooltip" hidden></div>
+      <div class="map-bottom"><span class="map-hint">Drag to explore <span>·</span> Scroll to zoom <span>·</span> Click a building</span><div class="controls" aria-label="City view controls"><button id="zoom-out" aria-label="Zoom out">−</button><button id="zoom-in" aria-label="Zoom in">＋</button><span class="control-sep"></span><button id="rotate" aria-label="Rotate city">↻</button><button id="reset" aria-label="Reset view">⌖</button><span class="control-sep"></span><button id="theme" aria-label="Switch to day view">☀</button></div></div>
+      <div class="map-watermark">REPOCITY<span> / EVERY FILE HAS A PLACE</span></div>
+    </section>
+  </main>
+  <footer><div id="status" role="status" aria-live="polite">Demo city loaded. Bring your own code to change the skyline.</div><button id="export" class="export-button">Export skyline <span>↗</span></button></footer>
+</body>
+</html>
